@@ -1,0 +1,41 @@
+{
+    "drinks": [
+    {
+    "idDrink": "11007",
+    "drinkName": "Margarita",
+    "price": "3",
+    "units":"dollar"
+    },
+    {
+    "idDrink": "178354",
+    "drinkName": "Pink Moon",
+    "price": "6",
+    "units":"dollar"
+    },
+    {
+    "idDrink": "12744",
+    "drinkName": "Microwave Hot Cocoa",
+    "price": "5",
+    "units":"dollar"
+    },
+    {
+    "idDrink": "178335",
+    "drinkName": "Lazy Coconut Paloma",
+    "price": "4",
+    "units":"dollar"
+    },
+    {
+    "idDrink": "17216",
+    "drinkName": "Tommy's Margarita",
+    "price": "4",
+    "units":"dollar"
+    },
+    {
+    "idDrink": "178362",
+    "drinkName": "Vodka Slime",
+    "price": "4.5",
+    "units":"dollar"
+    }
+    ]
+    }
+    

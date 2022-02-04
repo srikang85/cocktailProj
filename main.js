@@ -1,7 +1,7 @@
 
 
 /**
- * [5:05 pm] Ch, Samrat
+ * 
     The below scenarios are designed as a 60-minute assignment in which you are supposed to code and develop an application according to the given instructions.
 
 • Create a Node web application which serves 3 APIs .

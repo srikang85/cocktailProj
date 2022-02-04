@@ -144,22 +144,27 @@ app.get('/cocktailbyIngredient/:ingredient', function(req, res) {
       let drinksObject = JSON.parse(data);
       let drinkNames = drinksObject.drinks.map(drink => drink.drinkName);
       let allDrinks = [];
-      console.log(drinkNames);
-      async.eachLimit(drinkNames, 5, name, async(done, name) => {
-        let  drinksObject = await getDrinksFromServer(name);
-        allDrinks.concat(drinksObject.drinks);
-        done();
-      }, (err, result) => {
-          console.log(err);
+      //console.log(drinkNames);
+      async.eachLimit(drinkNames, 5, async (name) => {
+          console.log(name);
+          try {
+            let  drinksObject = await getDrinksFromServer(name);
+            allDrinks.push(drinksObject);
+          } catch (e) {
+              console.log(e);
+              throw new Error(e);
+          }
+      }, (err) => {
           if (err) {
+            console.log(err);
               return res.json({ error: err.message });
           } else {
-              let filteredDrinks = allDrinks.filter(drink => drink.strIngredient1 === ingredient ||
+              let filteredDrinks = allDrinks.filter(drink => drink && (drink.strIngredient1 === ingredient ||
                 drink.strIngredient2 === ingredient ||
                 drink.strIngredient3 === ingredient ||
                 drink.strIngredient4 === ingredient ||
                 drink.strIngredient5 === ingredient ||
-                drink.strIngredient6 === ingredient);
+                drink.strIngredient6 === ingredient));
                 return res.json({ success: 'Found', data: filteredDrinks} );
           }
       });
